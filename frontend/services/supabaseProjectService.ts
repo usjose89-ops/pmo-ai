@@ -57,11 +57,11 @@ export const supabaseProjectService = {
       code: `PRJ-${Math.floor(Math.random() * 1000)}`, // Simple auto-code for now
       client: project.client,
       status: project.status,
-      start_date: project.start_date,
+      start_date: project.start_date || null,
       subtitle: project.subtitle,
       location: project.location,
-      technical_finish_date: project.technical_finish_date,
-      admin_finish_date: project.admin_finish_date,
+      technical_finish_date: project.technical_finish_date || null,
+      admin_finish_date: project.admin_finish_date || null,
       risk_score: project.risk_score,
       risk_explanation: project.risk_explanation,
       evaluation_stage: project.evaluation_stage,
@@ -71,8 +71,6 @@ export const supabaseProjectService = {
       advance_financial: project.advance_financial || 0,
       financials: project.financials,
       hr_metrics: project.hr_metrics
-      // location, subtitle, risk_score are not natively in the DB init script, but Supabase JSONB or adding columns works.
-      // For now we pass what the DB has. If it throws error on extra columns, we should only pass valid columns.
     };
 
     const { data, error } = await supabase
@@ -145,11 +143,11 @@ export const supabaseProjectService = {
       name: project.name,
       client: project.client,
       status: project.status,
-      start_date: project.start_date,
+      start_date: project.start_date || null,
       subtitle: project.subtitle,
       location: project.location,
-      technical_finish_date: project.technical_finish_date,
-      admin_finish_date: project.admin_finish_date,
+      technical_finish_date: project.technical_finish_date || null,
+      admin_finish_date: project.admin_finish_date || null,
       risk_score: project.risk_score,
       risk_explanation: project.risk_explanation,
       evaluation_stage: project.evaluation_stage,
