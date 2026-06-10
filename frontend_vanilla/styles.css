@@ -1,0 +1,547 @@
+/* =========================================
+   AvanziaHub PMO - Dashboard 360 Dark Theme
+   ========================================= */
+
+:root {
+    --bg-main: #f8fafc; /* For light mode, but user wants dark. Wait, screenshot is dark mode for the dashboard cards, but sidebar is dark, background is #f8fafc? Let's check screenshot: Sidebar is dark blue/black. Dashboard background is white/light #f8fafc. Cards are dark #171a1f */
+    --bg-sidebar: #0f172a;
+    --bg-card: #171a1f;
+    --bg-card-inner: #1d2025;
+    
+    --text-primary: #f6f6fc;
+    --text-muted: #aaabb0;
+    --text-dark: #0f172a;
+    
+    --accent-blue: #4f46e5;
+    --accent-light-blue: #8eabff;
+    --accent-green: #1dfba5;
+    --accent-red: #ff716c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background: var(--bg-sidebar);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.text-accent {
+    color: var(--accent-blue);
+}
+
+.btn-main-dashboard {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-section-title {
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+}
+
+.nav-links {
+    list-style: none;
+    flex: 1;
+}
+
+.nav-links > li > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-links > li > a.active, .nav-links > li > a:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.subnav-links {
+    list-style: none;
+    padding-left: 32px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.subnav-title {
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.subnav-item {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.subnav-item::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+}
+
+.subnav-item.en-estudio::before { background: var(--accent-blue); }
+.subnav-item.activos::before { background: var(--accent-green); }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #1e293b;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name { font-size: 0.85rem; font-weight: 600; }
+.user-role { font-size: 0.7rem; }
+
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--bg-main);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.text-muted { color: #94a3b8; }
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.dashboard-container {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+}
+
+.portfolio-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.tab-btn {
+    border: none;
+    background: none;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--accent-blue);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.persona-switcher {
+    display: flex;
+    gap: 4px;
+    background: white;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.persona-btn {
+    border: none;
+    background: none;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.persona-btn.active {
+    background: var(--accent-blue);
+    color: white;
+}
+
+/* --- FINANCIAL METRICS ROW --- */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+}
+
+.metric-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.metric-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.value-large {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: 'Lexend', sans-serif;
+    color: var(--text-primary);
+}
+
+.currency {
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.metric-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.badge-red { background: rgba(255,113,108,0.2); color: var(--accent-red); }
+.badge-green { background: rgba(29,251,165,0.2); color: var(--accent-green); }
+
+.text-red { color: var(--accent-red) !important; }
+.text-green { color: var(--accent-green) !important; }
+.text-blue { color: var(--accent-light-blue) !important; }
+.text-white { color: var(--text-primary) !important; }
+
+/* SPI/CPI Grid */
+.spi-cpi-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.sc-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sc-col.border-right {
+    border-right: 1px solid rgba(255,255,255,0.1);
+    margin-right: 16px;
+}
+
+.sc-col:last-child {
+    text-align: right;
+}
+
+.sc-label {
+    font-size: 0.65rem;
+    color: #53555a;
+    font-weight: 700;
+}
+
+.sc-val {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* --- HR METRICS ROW --- */
+.hr-section {
+    background: #111318;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #1d2025;
+}
+
+.hr-title {
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+.hr-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.hr-card {
+    background: var(--bg-card-inner);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.hr-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.hr-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Lexend', sans-serif;
+    margin-bottom: 4px;
+}
+
+.hr-desc {
+    font-size: 0.65rem;
+    color: #74757a;
+}
+
+/* --- CRUD MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #2b2d31;
+    color: white;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    font-family: 'Lexend', sans-serif;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    color: white;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    background: var(--bg-card-inner);
+    border: 1px solid #2b2d31;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn-secondary {
+    background: var(--bg-card-inner);
+    color: white;
+    border: 1px solid #2b2d31;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-action-icon {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 4px;
+}
+.btn-action-icon:hover { color: white; }
+.btn-action-icon.delete:hover { color: var(--accent-red); }
+
+.subnav-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.subnav-item-container .subnav-item {
+    margin-bottom: 0;
+}

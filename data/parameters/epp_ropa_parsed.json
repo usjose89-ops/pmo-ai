@@ -1,0 +1,333 @@
+[
+    {
+        "type": "table",
+        "page": 1,
+        "content": [
+            [
+                "Elemento",
+                "Clasificación",
+                "Valor Unitario",
+                "Duración Meses",
+                "Personal que los requiere",
+                "Stock Adicinal"
+            ],
+            [
+                "Barbiquejos",
+                "EPP",
+                "260",
+                "1",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Bolso de Transporte de EPP (Arnes y Accesorios)",
+                "EPP",
+                "16.900",
+                "6",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Bolso de Transporte Ropa (Lavanderia)",
+                "EPP",
+                "16.990",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Botella de Agua Aluminio",
+                "EPP",
+                "4500",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Calzado V-FLEX V73",
+                "EPP",
+                "36.900",
+                "6",
+                "Todos",
+                "10% adicional redondeado. Las 3 tallas mas compradas."
+            ],
+            [
+                "Candados de Bloqueo (Naranja) personal electrico contratista",
+                "EPP",
+                "4.090",
+                "6",
+                "Supervisores",
+                "10% adicional redondeado"
+            ],
+            [
+                "Candados de Bloqueo (Rojo) Bloqueos Departamentales",
+                "EPP",
+                "4.090",
+                "6",
+                "Supervisores",
+                "10% adicional redondeado"
+            ],
+            [
+                "Casco de Seguridad MSA Vgard",
+                "EPP",
+                "8.000",
+                "12",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Filtros P100 (Todos)",
+                "EPP",
+                "8.500",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Guante Anticorte",
+                "EPP",
+                "2.350",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Guante Antigolpe",
+                "EPP",
+                "5.500",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Guantes Cabritilla",
+                "EPP",
+                "1.150",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Guantes Hyflex",
+                "EPP",
+                "2.100",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Guantes Nitrilo",
+                "EPP",
+                "1.190",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Labial Protector UV",
+                "EPP",
+                "1.210",
+                "1",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Lentes de Seguridad Hermeticos Claros",
+                "EPP",
+                "1.550",
+                "3",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Lentes de Seguridad Hermeticos Oscuros",
+                "EPP",
+                "1.550",
+                "3",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Pinzas de Bloqueo",
+                "EPP",
+                "920",
+                "12",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Protección auditiva copa (operadores)",
+                "EPP",
+                "17.100",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Protector Solar +F50 personal",
+                "EPP",
+                "4.500",
+                "3",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Respirador Medio Rostro",
+                "EPP",
+                "10.400",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Tyvek (Equipos Primarios)",
+                "EPP",
+                "4.400",
+                "6",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Amortiguador Y Tubular Mosq 107 Al/Orion Bh 1.8 M",
+                "EPP",
+                "118.260",
+                "6",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Arnes 5 Arg Mxo Die Ign Click Faja/Esp/Pie",
+                "EPP",
+                "218.000",
+                "6",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Balaclava Ignifuga Azul Marino",
+                "EPP",
+                "18.990",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Cabo Sujecion Python Lxx 107Al/Bk+Alpha3T Cue 1.8M",
+                "EPP",
+                "63.360",
+                "6",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Cabo Vida Y Dielec Tubular Moso Esc 1.8 M",
+                "EPP",
+                "103.950",
+                "6",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Chaqueta Ignifuga Tres Capas",
+                "Ropa de Trabajo",
+                "99.990",
+                "12",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Conjunto Primera Capa 100% Algodon",
+                "Ropa de Trabajo",
+                "12.990",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Dispositivo (Ts) Antitrauma De Caida Mt01-120",
+                "Ropa de Trabajo",
+                "4.050",
+                "6",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Geologo Ignifugo Naranjo",
+                "Ropa de Trabajo",
+                "39.990",
+                "12",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Morral (Ts) Lona Velcro Hebilla 35X15 Cm Bag01-R",
+                "Ropa de Trabajo",
+                "11.500",
+                "12",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Muñequera (Ts) Porta Herramientas Th01 Oferta",
+                "Ropa de Trabajo",
+                "2.500",
+                "12",
+                "Solo Linieros (M1 y M2)",
+                "10% adicional redondeado"
+            ],
+            [
+                "Overol Ignifugo Azul Marino",
+                "Ropa de Trabajo",
+                "79.990",
+                "6",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Pantalon Cargo Gabardina 9.5Oz Ignifugo",
+                "Ropa de Trabajo",
+                "42.990",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Polera Ignifuga Azul Marino",
+                "Ropa de Trabajo",
+                "31.990",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Poleron Ignifugo Azul Marino",
+                "Ropa de Trabajo",
+                "64.990",
+                "6",
+                "Todos",
+                "10% adicional redondeado"
+            ],
+            [
+                "Protección Auditiva Copa (Operadores)",
+                "Ropa de Trabajo",
+                "17.100",
+                "3",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ],
+            [
+                "Traje De Agua Ignifugo Bicolor",
+                "Ropa de Trabajo",
+                "170.000",
+                "6",
+                "Personal Directo",
+                "10% adicional redondeado"
+            ]
+        ]
+    },
+    {
+        "type": "text",
+        "page": 1,
+        "content": "Elemento Clasificación Valor Unitario Duración Meses Personal que los requiere Stock Adicinal\nBarbiquejos EPP 260 1 Todos 10% adicional redondeado\nBolso de Transporte de EPP (Arnes y Accesorios) EPP 16.900 6 Personal Directo 10% adicional redondeado\nBolso de Transporte Ropa (Lavanderia) EPP 16.990 6 Todos 10% adicional redondeado\nBotella de Agua Aluminio EPP 4500 6 Todos 10% adicional redondeado\nCalzado V-FLEX V73 EPP 36.900 6 Todos 10% adicional redondeado. Las 3 tallas mas compradas.\nCandados de Bloqueo (Naranja) personal electrico contratista EPP 4.090 6 Supervisores 10% adicional redondeado\nCandados de Bloqueo (Rojo) Bloqueos Departamentales EPP 4.090 6 Supervisores 10% adicional redondeado\nCasco de Seguridad MSA Vgard EPP 8.000 12 Todos 10% adicional redondeado\nFiltros P100 (Todos) EPP 8.500 3 Personal Directo 10% adicional redondeado\nGuante Anticorte EPP 2.350 3 Personal Directo 10% adicional redondeado\nGuante Antigolpe EPP 5.500 3 Personal Directo 10% adicional redondeado\nGuantes Cabritilla EPP 1.150 3 Personal Directo 10% adicional redondeado\nGuantes Hyflex EPP 2.100 3 Personal Directo 10% adicional redondeado\nGuantes Nitrilo EPP 1.190 3 Personal Directo 10% adicional redondeado\nLabial Protector UV EPP 1.210 1 Todos 10% adicional redondeado\nLentes de Seguridad Hermeticos Claros EPP 1.550 3 Todos 10% adicional redondeado\nLentes de Seguridad Hermeticos Oscuros EPP 1.550 3 Todos 10% adicional redondeado\nPinzas de Bloqueo EPP 920 12 Personal Directo 10% adicional redondeado\nProtección auditiva copa (operadores) EPP 17.100 3 Personal Directo 10% adicional redondeado\nProtector Solar +F50 personal EPP 4.500 3 Todos 10% adicional redondeado\nRespirador Medio Rostro EPP 10.400 3 Personal Directo 10% adicional redondeado\nTyvek (Equipos Primarios) EPP 4.400 6 Personal Directo 10% adicional redondeado\nAmortiguador Y Tubular Mosq 107 Al/Orion Bh 1.8 M EPP 118.260 6 Solo Linieros (M1 y M2) 10% adicional redondeado\nArnes 5 Arg Mxo Die Ign Click Faja/Esp/Pie EPP 218.000 6 Solo Linieros (M1 y M2) 10% adicional redondeado\nBalaclava Ignifuga Azul Marino EPP 18.990 3 Personal Directo 10% adicional redondeado\nCabo Sujecion Python Lxx 107Al/Bk+Alpha3T Cue 1.8M EPP 63.360 6 Solo Linieros (M1 y M2) 10% adicional redondeado\nCabo Vida Y Dielec Tubular Moso Esc 1.8 M EPP 103.950 6 Solo Linieros (M1 y M2) 10% adicional redondeado\nChaqueta Ignifuga Tres Capas Ropa de Trabajo 99.990 12 Todos 10% adicional redondeado\nConjunto Primera Capa 100% Algodon Ropa de Trabajo 12.990 6 Todos 10% adicional redondeado\nDispositivo (Ts) Antitrauma De Caida Mt01-120 Ropa de Trabajo 4.050 6 Solo Linieros (M1 y M2) 10% adicional redondeado\nGeologo Ignifugo Naranjo Ropa de Trabajo 39.990 12 Todos 10% adicional redondeado\nMorral (Ts) Lona Velcro Hebilla 35X15 Cm Bag01-R Ropa de Trabajo 11.500 12 Solo Linieros (M1 y M2) 10% adicional redondeado\nMuñequera (Ts) Porta Herramientas Th01 Oferta Ropa de Trabajo 2.500 12 Solo Linieros (M1 y M2) 10% adicional redondeado\nOverol Ignifugo Azul Marino Ropa de Trabajo 79.990 6 Personal Directo 10% adicional redondeado\nPantalon Cargo Gabardina 9.5Oz Ignifugo Ropa de Trabajo 42.990 6 Todos 10% adicional redondeado\nPolera Ignifuga Azul Marino Ropa de Trabajo 31.990 6 Todos 10% adicional redondeado\nPoleron Ignifugo Azul Marino Ropa de Trabajo 64.990 6 Todos 10% adicional redondeado\nProtección Auditiva Copa (Operadores) Ropa de Trabajo 17.100 3 Personal Directo 10% adicional redondeado\nTraje De Agua Ignifugo Bicolor Ropa de Trabajo 170.000 6 Personal Directo 10% adicional redondeado"
+    }
+]

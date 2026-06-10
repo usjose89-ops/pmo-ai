@@ -1,0 +1,314 @@
+[
+    {
+        "name": "Barbiquejos",
+        "category": "EPP",
+        "unit_price": 260,
+        "duration_months": 1,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Bolso de Transporte de EPP (Arnes y Accesorios)",
+        "category": "EPP",
+        "unit_price": 16900,
+        "duration_months": 6,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Bolso de Transporte Ropa (Lavanderia)",
+        "category": "EPP",
+        "unit_price": 16990,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Botella de Agua Aluminio",
+        "category": "EPP",
+        "unit_price": 4500,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Calzado V-FLEX V73",
+        "category": "EPP",
+        "unit_price": 36900,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado. Las 3 tallas mas compradas."
+    },
+    {
+        "name": "Candados de Bloqueo (Naranja) personal electrico contratista",
+        "category": "EPP",
+        "unit_price": 4090,
+        "duration_months": 6,
+        "required_by": "Supervisores",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Candados de Bloqueo (Rojo) Bloqueos Departamentales",
+        "category": "EPP",
+        "unit_price": 4090,
+        "duration_months": 6,
+        "required_by": "Supervisores",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Casco de Seguridad MSA Vgard",
+        "category": "EPP",
+        "unit_price": 8000,
+        "duration_months": 12,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Filtros P100 (Todos)",
+        "category": "EPP",
+        "unit_price": 8500,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Guante Anticorte",
+        "category": "EPP",
+        "unit_price": 2350,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Guante Antigolpe",
+        "category": "EPP",
+        "unit_price": 5500,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Guantes Cabritilla",
+        "category": "EPP",
+        "unit_price": 1150,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Guantes Hyflex",
+        "category": "EPP",
+        "unit_price": 2100,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Guantes Nitrilo",
+        "category": "EPP",
+        "unit_price": 1190,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Labial Protector UV",
+        "category": "EPP",
+        "unit_price": 1210,
+        "duration_months": 1,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Lentes de Seguridad Hermeticos Claros",
+        "category": "EPP",
+        "unit_price": 1550,
+        "duration_months": 3,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Lentes de Seguridad Hermeticos Oscuros",
+        "category": "EPP",
+        "unit_price": 1550,
+        "duration_months": 3,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Pinzas de Bloqueo",
+        "category": "EPP",
+        "unit_price": 920,
+        "duration_months": 12,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Protección auditiva copa (operadores)",
+        "category": "EPP",
+        "unit_price": 17100,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Protector Solar +F50 personal",
+        "category": "EPP",
+        "unit_price": 4500,
+        "duration_months": 3,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Respirador Medio Rostro",
+        "category": "EPP",
+        "unit_price": 10400,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Tyvek (Equipos Primarios)",
+        "category": "EPP",
+        "unit_price": 4400,
+        "duration_months": 6,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Amortiguador Y Tubular Mosq 107 Al/Orion Bh 1.8 M",
+        "category": "EPP",
+        "unit_price": 118260,
+        "duration_months": 6,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Arnes 5 Arg Mxo Die Ign Click Faja/Esp/Pie",
+        "category": "EPP",
+        "unit_price": 218000,
+        "duration_months": 6,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Balaclava Ignifuga Azul Marino",
+        "category": "EPP",
+        "unit_price": 18990,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Cabo Sujecion Python Lxx 107Al/Bk+Alpha3T Cue 1.8M",
+        "category": "EPP",
+        "unit_price": 63360,
+        "duration_months": 6,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Cabo Vida Y Dielec Tubular Moso Esc 1.8 M",
+        "category": "EPP",
+        "unit_price": 103950,
+        "duration_months": 6,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Chaqueta Ignifuga Tres Capas",
+        "category": "Ropa de Trabajo",
+        "unit_price": 99990,
+        "duration_months": 12,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Conjunto Primera Capa 100% Algodon",
+        "category": "Ropa de Trabajo",
+        "unit_price": 12990,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Dispositivo (Ts) Antitrauma De Caida Mt01-120",
+        "category": "Ropa de Trabajo",
+        "unit_price": 4050,
+        "duration_months": 6,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Geologo Ignifugo Naranjo",
+        "category": "Ropa de Trabajo",
+        "unit_price": 39990,
+        "duration_months": 12,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Morral (Ts) Lona Velcro Hebilla 35X15 Cm Bag01-R",
+        "category": "Ropa de Trabajo",
+        "unit_price": 11500,
+        "duration_months": 12,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Muñequera (Ts) Porta Herramientas Th01 Oferta",
+        "category": "Ropa de Trabajo",
+        "unit_price": 2500,
+        "duration_months": 12,
+        "required_by": "Solo Linieros (M1 y M2)",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Overol Ignifugo Azul Marino",
+        "category": "Ropa de Trabajo",
+        "unit_price": 79990,
+        "duration_months": 6,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Pantalon Cargo Gabardina 9.5Oz Ignifugo",
+        "category": "Ropa de Trabajo",
+        "unit_price": 42990,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Polera Ignifuga Azul Marino",
+        "category": "Ropa de Trabajo",
+        "unit_price": 31990,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Poleron Ignifugo Azul Marino",
+        "category": "Ropa de Trabajo",
+        "unit_price": 64990,
+        "duration_months": 6,
+        "required_by": "Todos",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Protección Auditiva Copa (Operadores)",
+        "category": "Ropa de Trabajo",
+        "unit_price": 17100,
+        "duration_months": 3,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    },
+    {
+        "name": "Traje De Agua Ignifugo Bicolor",
+        "category": "Ropa de Trabajo",
+        "unit_price": 170000,
+        "duration_months": 6,
+        "required_by": "Personal Directo",
+        "stock_buffer_rule": "10% adicional redondeado"
+    }
+]

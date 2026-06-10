@@ -1,0 +1,25 @@
+# Python / Backend
+.venv/
+__pycache__/
+*.pyc
+.env
+constructia.db
+run_logs/
+uploads_tmp/
+zip_project.py
+zip_project_light.py
+*.zip
+
+# Next.js / Frontend
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+frontend/.env
+.DS_Store
+
+# Agents
+.agents/
+.augment/
+.claude/
+client_context_log.txt
+debug_ocr.txt
