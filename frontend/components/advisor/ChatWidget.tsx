@@ -21,7 +21,7 @@ const MOCK_MESSAGES: Message[] = [
 ];
 
 interface ChatWidgetProps {
-    projectId?: number;
+    projectId?: string;
     embedded?: boolean;
 }
 
@@ -34,14 +34,14 @@ export function ChatWidget({ projectId, embedded = false }: ChatWidgetProps) {
 
     // Initialize Mock Messages based on Project Context
     useEffect(() => {
-        if (projectId === 4) { // Trolley
+        if (String(projectId) === '4') { // Trolley
             setMessages([{
                 id: '1',
                 role: 'assistant',
                 content: 'Hola Juan, soy tu **Asesor de Cierre**. Tengo acceso a todos los finiquitos y actas de recepción de "TROLLEY". ¿Necesitas redactar el acta final?',
                 timestamp: new Date(),
             }]);
-        } else if (projectId === 5) { // Subestación
+        } else if (String(projectId) === '5') { // Subestación
             setMessages([{
                 id: '1',
                 role: 'assistant',

@@ -25,13 +25,13 @@ export function GlobalOperationsMonitor() {
     const activeProjects = MOCK_PROJECTS.filter(p => p.status === ProjectStatus.ADJUDICADO_EN_CURSO);
 
     // Mock Alerts Generator (since we don't have a backend for this yet)
-    const generateAlerts = (projectId: number) => {
+    const generateAlerts = (projectId: number | string) => {
         // Deterministic mock based on ID
         const alerts = [];
-        if (projectId === 5) { // Subestación
+        if (String(projectId) === '5') { // Subestación
             alerts.push({ id: 1, severity: 'CRITICAL', title: 'Retraso en Hormigonado', desc: 'SPI bajo 0.8 en sector fundaciones.', date: 'Hace 2 horas', category: 'PLANIFICACIÓN' });
             alerts.push({ id: 2, severity: 'HIGH', title: 'Falta de EPP Específico', desc: 'Stock crítico de guantes dieléctricos.', date: 'Ayer', category: 'SEGURIDAD' });
-        } else if (projectId === 4) { // Trolley (Cerrado but maybe has lingering alerts or historical?)
+        } else if (String(projectId) === '4') { // Trolley (Cerrado but maybe has lingering alerts or historical?)
             // Should not be here if we filter active, but just in case.
         } else {
             // Generic
