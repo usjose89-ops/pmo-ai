@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { ProjectsList } from '@/components/dashboard/ProjectsList';
-import { ProjectFormModal } from '@/components/project/ProjectFormModal';
 import { supabaseProjectService } from '@/services/supabaseProjectService';
 import { Project } from '@/types/project';
 import { Loader2 } from 'lucide-react';
@@ -9,8 +8,6 @@ import { Loader2 } from 'lucide-react';
 export default function ProjectsPage() {
     const [projects, setProjects] = useState<Project[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editingProject, setEditingProject] = useState<Project | null>(null);
 
     const loadProjects = async () => {
         setIsLoading(true);
@@ -23,31 +20,6 @@ export default function ProjectsPage() {
         loadProjects();
     }, []);
 
-    const handleNewProject = () => {
-        setEditingProject(null);
-        setIsModalOpen(true);
-    };
-
-    const handleEditProject = (project: Project) => {
-        setEditingProject(project);
-        setIsModalOpen(true);
-    };
-
-    const handleDeleteProject = async (id: string) => {
-        setIsLoading(true);
-        const success = await supabaseProjectService.deleteProject(id);
-        if(success) {
-            await loadProjects();
-        } else {
-            setIsLoading(false);
-            alert("Error al eliminar el proyecto.");
-        }
-    };
-
-    const handleSave = () => {
-        loadProjects(); // Reload after save
-    };
-
     return (
         <div className="p-10 space-y-8 animate-in fade-in duration-500 bg-[#f8fafc] min-h-full relative">
             {isLoading ? (
@@ -58,18 +30,8 @@ export default function ProjectsPage() {
             ) : (
                 <ProjectsList 
                     projects={projects} 
-                    onNewProject={handleNewProject} 
-                    onEditProject={handleEditProject} 
-                    onDeleteProject={handleDeleteProject}
                 />
             )}
-
-            <ProjectFormModal 
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onSave={handleSave}
-                initialData={editingProject}
-            />
         </div>
     );
 }

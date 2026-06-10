@@ -212,6 +212,16 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
               {isSidebarOpen && <span className="ml-3 text-sm font-medium">Parámetros de Costos</span>}
             </Link>
           </div>
+
+          {/* NIVEL 4: ADMINISTRACIÓN */}
+          <div>
+            {isSidebarOpen && <p className="px-3 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2 mt-4">Administración</p>}
+
+            <Link href="/setup/projects" className={`flex items-center px-3 py-2.5 rounded-lg hover:bg-slate-800/50 transition-all group ${pathname?.startsWith('/setup/projects') ? 'bg-indigo-900/50 text-indigo-200 border border-indigo-500/30' : 'text-slate-300 hover:text-white'}`}>
+              <Settings className={`h-5 w-5 ${pathname?.startsWith('/setup/projects') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-emerald-400'}`} />
+              {isSidebarOpen && <span className="ml-3 text-sm font-medium">Setup de Proyectos</span>}
+            </Link>
+          </div>
         </nav>
 
         <div className="p-4 border-t border-slate-800 bg-slate-900/50">
