@@ -33,6 +33,17 @@ export default function ProjectsPage() {
         setIsModalOpen(true);
     };
 
+    const handleDeleteProject = async (id: string) => {
+        setIsLoading(true);
+        const success = await supabaseProjectService.deleteProject(id);
+        if(success) {
+            await loadProjects();
+        } else {
+            setIsLoading(false);
+            alert("Error al eliminar el proyecto.");
+        }
+    };
+
     const handleSave = () => {
         loadProjects(); // Reload after save
     };
@@ -49,6 +60,7 @@ export default function ProjectsPage() {
                     projects={projects} 
                     onNewProject={handleNewProject} 
                     onEditProject={handleEditProject} 
+                    onDeleteProject={handleDeleteProject}
                 />
             )}
 

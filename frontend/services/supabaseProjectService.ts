@@ -174,5 +174,20 @@ export const supabaseProjectService = {
     }
 
     return data;
+  },
+
+  deleteProject: async (id: string): Promise<boolean> => {
+    const supabase = createClient();
+    const { error } = await supabase
+      .from('projects')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      console.error('Error deleting project:', error);
+      return false;
+    }
+
+    return true;
   }
 };

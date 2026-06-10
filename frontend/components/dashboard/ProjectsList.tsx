@@ -9,9 +9,10 @@ interface ProjectsListProps {
     projects: Project[];
     onNewProject: () => void;
     onEditProject: (project: Project) => void;
+    onDeleteProject?: (id: string) => void;
 }
 
-export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProject, onEditProject }) => {
+export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProject, onEditProject, onDeleteProject }) => {
 
     // Currency Formatter
     const formatMoney = (val: number, currency: string) => {
@@ -43,13 +44,13 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProje
                     <p className="text-slate-500 mt-1">Gestión centralizada de obras en estudio y ejecución</p>
                 </div>
                 {activeTab === 'ESTUDIO' && (
-                    <Link
-                        href="/studies/new"
+                    <button
+                        onClick={onNewProject}
                         className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-bold flex items-center shadow-lg shadow-indigo-200 transition-all transform hover:-translate-y-1"
                     >
                         <Plus className="mr-2" size={20} />
                         Crear Estudio
-                    </Link>
+                    </button>
                 )}
             </div>
 
@@ -100,15 +101,30 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProje
                                     <div className={`px-3 py-1.5 rounded-lg text-xs font-black shadow-sm ${getRiskColor(project.risk_score)}`}>
                                         Riesgo {project.risk_score}
                                     </div>
-                                    <button 
-                                        onClick={(e) => { 
-                                            e.preventDefault(); 
-                                            onEditProject(project); 
-                                        }}
-                                        className="text-xs font-bold text-slate-400 hover:text-indigo-600 px-2 py-1 bg-white rounded shadow-sm border border-slate-200"
-                                    >
-                                        Editar
-                                    </button>
+                                    <div className="flex gap-2 mt-1">
+                                        <button 
+                                            onClick={(e) => { 
+                                                e.preventDefault(); 
+                                                onEditProject(project); 
+                                            }}
+                                            className="text-xs font-bold text-slate-400 hover:text-indigo-600 px-2 py-1 bg-white rounded shadow-sm border border-slate-200"
+                                        >
+                                            Editar
+                                        </button>
+                                        {onDeleteProject && (
+                                            <button 
+                                                onClick={(e) => { 
+                                                    e.preventDefault(); 
+                                                    if(confirm('¿Estás seguro de eliminar este proyecto y todos sus componentes?')) {
+                                                        onDeleteProject(project.id);
+                                                    }
+                                                }}
+                                                className="text-xs font-bold text-slate-400 hover:text-rose-600 px-2 py-1 bg-white rounded shadow-sm border border-slate-200"
+                                            >
+                                                Eliminar
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 

@@ -45,7 +45,7 @@ export default function TendersPage() {
             </div>
 
             {/* Budget Grid Area */}
-            <BudgetGrid />
+            <BudgetGrid projectId="11111111-1111-1111-1111-111111111111" />
 
             {/* Footer Summary */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">

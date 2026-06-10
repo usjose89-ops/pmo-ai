@@ -27,7 +27,7 @@ export const BudgetModule: React.FC<BudgetModuleProps> = ({ project }) => {
                         <p className="text-slate-500">Fase de Estudio: Edita y optimiza tus APUs antes de ofertar.</p>
                     </div>
                 </div>
-                <BudgetGrid />
+                <BudgetGrid projectId={project.id} />
             </div>
         );
     }

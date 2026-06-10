@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { ChevronRight, ChevronDown, Edit3, Calculator } from 'lucide-react';
 import { APUEditorModal } from './APUEditorModal';
 
+import { supabaseComponentService } from '@/services/supabaseComponentService';
+
 // Types
 interface BudgetRow {
     id: string;
@@ -19,52 +21,13 @@ interface BudgetRow {
     isExpanded?: boolean;
 }
 
-// Mock Initial Data
-const INITIAL_DATA: BudgetRow[] = [
-    {
-        id: '1',
-        code: '1',
-        description: 'Obras Civiles',
-        unit: 'glb',
-        qty: 1,
-        unitPrice: 0, // calculated from children
-        totalPrice: 0,
-        type: 'ITEM',
-        isExpanded: true,
-        children: [
-            {
-                id: '1.1',
-                code: '1.1',
-                description: 'Hormigones',
-                unit: 'm3',
-                qty: 150,
-                unitPrice: 120000,
-                totalPrice: 18000000,
-                type: 'SUBITEM',
-                isExpanded: true,
-                children: [
-                    { id: 'r1', code: '', description: 'Cemento Especial', unit: 'saco', qty: 6, unitPrice: 4500, totalPrice: 27000, type: 'RESOURCE', resourceType: 'MATERIAL' },
-                    { id: 'r2', code: '', description: 'Maestro Albañil', unit: 'hh', qty: 2.5, unitPrice: 8500, totalPrice: 21250, type: 'RESOURCE', resourceType: 'LABOR' },
-                    { id: 'r3', code: '', description: 'Betonera 150L', unit: 'hm', qty: 0.5, unitPrice: 3500, totalPrice: 1750, type: 'RESOURCE', resourceType: 'EQUIPMENT' },
-                ]
-            },
-            {
-                id: '1.2',
-                code: '1.2',
-                description: 'Enfierradura',
-                unit: 'kg',
-                qty: 2500,
-                unitPrice: 1350,
-                totalPrice: 3375000,
-                type: 'SUBITEM',
-                children: []
-            }
-        ]
-    }
-];
+interface BudgetGridProps {
+    projectId: string;
+}
 
-export function BudgetGrid() {
-    const [data, setData] = useState<BudgetRow[]>(INITIAL_DATA);
+export function BudgetGrid({ projectId }: BudgetGridProps) {
+    const [data, setData] = useState<BudgetRow[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [editingAPU, setEditingAPU] = useState<BudgetRow | null>(null);
     const [flashingRow, setFlashingRow] = useState<string | null>(null);
 
@@ -88,9 +51,50 @@ export function BudgetGrid() {
         setEditingAPU(row);
     };
 
+    const loadBudgetLines = async () => {
+        setIsLoading(true);
+        const lines = await supabaseComponentService.getBudgetLines(projectId);
+        
+        const mapped: BudgetRow[] = lines.map((line, index) => ({
+            id: line.id,
+            code: `${index + 1}`,
+            description: line.description,
+            unit: 'glb',
+            qty: 1,
+            unitPrice: line.bac_amount,
+            totalPrice: line.bac_amount,
+            type: 'SUBITEM',
+            isExpanded: false,
+            children: []
+        }));
+        
+        setData(mapped);
+        setIsLoading(false);
+    };
+
+    React.useEffect(() => {
+        if(projectId) loadBudgetLines();
+    }, [projectId]);
+
+    const handleAddLine = async () => {
+        const newLine = await supabaseComponentService.createBudgetLine({
+            project_id: projectId,
+            budget_category: 'GENERAL',
+            description: 'Nueva Partida',
+            bac_amount: 0
+        });
+        if (newLine) loadBudgetLines();
+    };
+
+    const handleDeleteLine = async (id: string) => {
+        if(confirm('¿Seguro que deseas eliminar esta partida?')) {
+            await supabaseComponentService.deleteBudgetLine(id);
+            loadBudgetLines();
+        }
+    };
+
     const handlePriceUpdateMock = (id: string) => {
-        // Simulate an update that triggers a flash on parent
-        setFlashingRow('1.1'); // Hardcoded visual effect for demo
+        setFlashingRow(id);
         setTimeout(() => setFlashingRow(null), 800);
     };
 
@@ -129,17 +133,26 @@ export function BudgetGrid() {
                         {/* Description */}
                         <td className="py-2 px-2" style={{ paddingLeft: `${paddingLeft}px` }}>
                             <div className="flex items-center justify-between">
-                                <span className={`text-sm font-medium ${textColor}`}>
+                                <span className={`text-sm font-medium ${textColor} flex items-center gap-2`}>
                                     {row.description}
-                                    {row.type === 'SUBITEM' && (
+                                    <div className="opacity-0 group-hover:opacity-100 flex gap-1">
+                                        {row.type === 'SUBITEM' && (
+                                            <button
+                                                onClick={() => handleEditAPU(row)}
+                                                className="p-1 text-gray-400 hover:text-indigo-600 bg-gray-100 rounded"
+                                                title="Editar APU"
+                                            >
+                                                <Edit3 size={12} />
+                                            </button>
+                                        )}
                                         <button
-                                            onClick={() => handleEditAPU(row)}
-                                            className="ml-2 opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-500 rounded"
-                                            title="Editar APU"
+                                            onClick={() => handleDeleteLine(row.id)}
+                                            className="p-1 text-gray-400 hover:text-rose-600 bg-gray-100 rounded"
+                                            title="Eliminar"
                                         >
-                                            <Edit3 size={12} />
+                                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                                         </button>
-                                    )}
+                                    </div>
                                 </span>
                             </div>
                         </td>
@@ -176,8 +189,20 @@ export function BudgetGrid() {
     };
 
     return (
-        <div className="max-w-full overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
-            <table className="w-full text-left border-collapse">
+        <div className="space-y-4">
+            <div className="flex justify-end">
+                <button 
+                    onClick={handleAddLine}
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl font-bold flex items-center shadow-md transition-all text-sm"
+                >
+                    + Nueva Partida
+                </button>
+            </div>
+            {isLoading ? (
+                <div className="p-10 text-center text-slate-500">Cargando presupuesto...</div>
+            ) : (
+                <div className="max-w-full overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
+                    <table className="w-full text-left border-collapse">
                 <thead>
                     <tr className="bg-slate-50 text-gray-500 text-xs uppercase tracking-wider border-b border-gray-200">
                         <th className="py-3 px-2 font-semibold w-24">Código</th>
@@ -199,6 +224,8 @@ export function BudgetGrid() {
                 onClose={() => setEditingAPU(null)}
                 apuData={editingAPU}
             />
+        </div>
+            )}
         </div>
     );
 }
