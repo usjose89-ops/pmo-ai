@@ -89,6 +89,54 @@ export const supabaseProjectService = {
     return data;
   },
 
+  getProject: async (id: string | number): Promise<Project | null> => {
+    const supabase = createClient();
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('id', id.toString())
+      .single();
+
+    if (error) {
+      console.error('Error fetching project:', error);
+      return null;
+    }
+    
+    return {
+      id: data.id,
+      name: data.name,
+      subtitle: data.subtitle || '',
+      client: data.client,
+      location: data.location || 'No especificada',
+      status: data.status,
+      start_date: data.start_date,
+      technical_finish_date: data.technical_finish_date || '',
+      admin_finish_date: data.admin_finish_date || '',
+      risk_score: data.risk_score || 0,
+      risk_label: data.risk_label || 'BAJO',
+      risk_explanation: data.risk_explanation || '',
+      evaluation_stage: data.evaluation_stage,
+      pipeline_status: data.pipeline_status,
+      advance_physical: data.advance_physical || 0,
+      advance_financial: data.advance_financial || 0,
+      financials: data.financials || {
+        total_revenue: 0,
+        total_cost: 0,
+        gross_margin: 0,
+        gross_margin_percent: 0,
+        target_revenue: 0,
+        target_margin_percent: 0,
+        currency: 'CLP'
+      },
+      hr_metrics: data.hr_metrics || {
+        headcount: 0,
+        total_hh: 0,
+        avg_cost_hh: 0,
+        productive_factor: 0
+      }
+    } as Project;
+  },
+
   updateProject: async (id: string, project: Partial<Project>): Promise<Project | null> => {
     const supabase = createClient();
     

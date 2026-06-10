@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { Project } from '@/types/project';
-import { projectService } from '@/services/projectService';
+import { supabaseProjectService } from '@/services/supabaseProjectService';
 import { DashboardCockpit } from '@/components/dashboard/DashboardCockpit';
 import { Loader2, AlertCircle } from 'lucide-react';
 
@@ -13,7 +13,7 @@ export default function Home() {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const data = await projectService.getProjects();
+                const data = await supabaseProjectService.getProjects();
                 setProjects(data);
             } catch (err) {
                 console.error('Error fetching projects:', err);
