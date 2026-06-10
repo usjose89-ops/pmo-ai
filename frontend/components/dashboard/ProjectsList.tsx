@@ -8,9 +8,10 @@ import { Project } from '@/types/project';
 interface ProjectsListProps {
     projects: Project[];
     onNewProject: () => void;
+    onEditProject: (project: Project) => void;
 }
 
-export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProject }) => {
+export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProject, onEditProject }) => {
 
     // Currency Formatter
     const formatMoney = (val: number, currency: string) => {
@@ -95,8 +96,19 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({ projects, onNewProje
                                     </h3>
                                     <p className="text-xs text-slate-400 mt-1 font-medium">{project.subtitle}</p>
                                 </div>
-                                <div className={`px-3 py-1.5 rounded-lg text-xs font-black shadow-sm ${getRiskColor(project.risk_score)}`}>
-                                    Riesgo {project.risk_score}
+                                <div className="flex flex-col gap-2 items-end">
+                                    <div className={`px-3 py-1.5 rounded-lg text-xs font-black shadow-sm ${getRiskColor(project.risk_score)}`}>
+                                        Riesgo {project.risk_score}
+                                    </div>
+                                    <button 
+                                        onClick={(e) => { 
+                                            e.preventDefault(); 
+                                            onEditProject(project); 
+                                        }}
+                                        className="text-xs font-bold text-slate-400 hover:text-indigo-600 px-2 py-1 bg-white rounded shadow-sm border border-slate-200"
+                                    >
+                                        Editar
+                                    </button>
                                 </div>
                             </div>
 

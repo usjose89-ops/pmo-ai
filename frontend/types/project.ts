@@ -52,7 +52,7 @@ export interface ProjectHRMetrics {
 }
 
 export interface Project {
-    id: number;
+    id: string;
     name: string;
     subtitle?: string;
     client: string;

@@ -2,7 +2,7 @@ import { Project, ProjectStatus } from '@/types/project';
 
 export const MOCK_PROJECTS: Project[] = [
     {
-        id: 6,
+        id: "6",
         name: 'Nueva Sala MT_Ventanas Feb26',
         subtitle: 'Nueva Sala Eléctrica MT N°2 (STN rev.1)',
         client: 'CODELCO Div. Ventanas',
@@ -36,7 +36,7 @@ export const MOCK_PROJECTS: Project[] = [
         }
     },
     {
-        id: 7,
+        id: "7",
         name: 'Obras Civiles PTAS San Pedro',
         subtitle: 'Ampliación Planta de Tratamiento',
         client: 'Aguas Andinas',
@@ -70,7 +70,7 @@ export const MOCK_PROJECTS: Project[] = [
         }
     },
     {
-        id: 4,
+        id: "4",
         name: 'TROLLEY',
         subtitle: 'Proyecto de Cierre',
         client: 'MEL',
@@ -107,7 +107,7 @@ export const MOCK_PROJECTS: Project[] = [
         }
     },
     {
-        id: 5,
+        id: "5",
         name: 'Subestación O´Higgins',
         subtitle: 'Construcción Proyecto Aumento de capacidad en BP1',
         client: 'MEL',
