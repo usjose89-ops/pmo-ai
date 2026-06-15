@@ -28,6 +28,9 @@ export const ProjectFormModal: React.FC<ProjectFormModalProps> = ({ isOpen, onCl
             risk_label: 'BAJO',
             advance_physical: 0,
             advance_financial: 0,
+            risk_score: 1,
+            evaluation_stage: 'Análisis de Bases',
+            pipeline_status: 'En Revisión',
             financials: {
                 total_revenue: 0,
                 total_cost: 0,

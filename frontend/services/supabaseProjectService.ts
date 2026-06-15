@@ -56,21 +56,21 @@ export const supabaseProjectService = {
       name: project.name,
       code: `PRJ-${Math.floor(Math.random() * 1000)}`, // Simple auto-code for now
       client: project.client,
-      status: project.status,
+      status: project.status || 'EN_ANALISIS',
       start_date: project.start_date || null,
-      subtitle: project.subtitle,
-      location: project.location,
+      subtitle: project.subtitle || '',
+      location: project.location || '',
       technical_finish_date: project.technical_finish_date || null,
       admin_finish_date: project.admin_finish_date || null,
-      risk_score: project.risk_score,
-      risk_explanation: project.risk_explanation,
-      evaluation_stage: project.evaluation_stage,
-      pipeline_status: project.pipeline_status,
-      risk_label: project.risk_label,
+      risk_score: project.risk_score || 1,
+      risk_explanation: project.risk_explanation || '',
+      evaluation_stage: project.evaluation_stage || 'Análisis de Bases',
+      pipeline_status: project.pipeline_status || 'En Revisión',
+      risk_label: project.risk_label || 'BAJO',
       advance_physical: project.advance_physical || 0,
       advance_financial: project.advance_financial || 0,
-      financials: project.financials,
-      hr_metrics: project.hr_metrics
+      financials: project.financials || {},
+      hr_metrics: project.hr_metrics || {}
     };
 
     const { data, error } = await supabase
@@ -144,19 +144,19 @@ export const supabaseProjectService = {
       client: project.client,
       status: project.status,
       start_date: project.start_date || null,
-      subtitle: project.subtitle,
-      location: project.location,
+      subtitle: project.subtitle || '',
+      location: project.location || '',
       technical_finish_date: project.technical_finish_date || null,
       admin_finish_date: project.admin_finish_date || null,
-      risk_score: project.risk_score,
-      risk_explanation: project.risk_explanation,
-      evaluation_stage: project.evaluation_stage,
-      pipeline_status: project.pipeline_status,
-      risk_label: project.risk_label,
-      advance_physical: project.advance_physical,
-      advance_financial: project.advance_financial,
-      financials: project.financials,
-      hr_metrics: project.hr_metrics
+      risk_score: project.risk_score || 1,
+      risk_explanation: project.risk_explanation || '',
+      evaluation_stage: project.evaluation_stage || 'Análisis de Bases',
+      pipeline_status: project.pipeline_status || 'En Revisión',
+      risk_label: project.risk_label || 'BAJO',
+      advance_physical: project.advance_physical || 0,
+      advance_financial: project.advance_financial || 0,
+      financials: project.financials || {},
+      hr_metrics: project.hr_metrics || {}
     };
 
     const { data, error } = await supabase
