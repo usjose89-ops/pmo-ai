@@ -28,6 +28,7 @@ export default function ParametersPage() {
     const fetchParameters = async () => {
         try {
             const res = await fetch(`${API_URL}/parameters/`);
+            const data = await res.json();
             setParameters(data);
             setLoading(false);
         } catch (error) {

@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { X, Save, FileText, Award, MapPin, Phone, AlertTriangle, User, Activity } from 'lucide-react';
 
 export const PersonProfileModal = ({ isOpen, onClose, person, onSave }: any) => {
-    if (!isOpen || !person) return null;
+    const [formData, setFormData] = useState(person || {});
 
-    const [formData, setFormData] = useState({ ...person });
+    React.useEffect(() => {
+        if (person) setFormData(person);
+    }, [person]);
+
+    if (!isOpen || !person) return null;
 
     // Calculate expiration logic
     const checkExpiration = (dateStr: string) => {
