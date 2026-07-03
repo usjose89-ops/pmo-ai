@@ -10,6 +10,7 @@ import { BudgetModule } from '@/components/budget/BudgetModule';
 import { HumanResources } from '@/components/project/HumanResources';
 import { ProjectBoard } from '@/components/operations/ProjectBoard';
 import { QualityDashboard } from '@/components/qaqc/QualityDashboard';
+import { ExecutiveDashboard } from '@/components/project/ExecutiveDashboard';
 
 // --- ICONOS SVG ---
 const Icons = {
@@ -79,27 +80,19 @@ export default function ProjectDetailPage() {
                 />
             )}
 
-            <div className="card-premium p-10 border-t-8 border-t-indigo-600 bg-white rounded-2xl shadow-xl">
-                <div className="flex justify-between items-start mb-10">
+            <div className="card-premium p-6 md:p-10 border-t-8 border-t-indigo-600 bg-white rounded-2xl shadow-xl">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-slate-100 pb-6">
                     <div>
-                        <span className={`px-4 py-2 rounded-lg text-xs font-black uppercase tracking-widest mb-3 inline-block shadow-sm animate-pulse ${isStudy ? 'bg-amber-50 text-amber-700' : 'bg-indigo-50 text-indigo-700'}`}>
-                            {project.status.replace(/_/g, ' ')}
-                        </span>
-                        <h1 className="text-5xl font-black text-slate-900 tracking-tight mb-2">{project.name}</h1>
-                        <p className="text-xl text-slate-400 font-medium">{project.subtitle || 'Proyecto de Construcción'}</p>
+                        <h2 className="text-xl md:text-2xl font-bold text-slate-800">Panel Principal de Control</h2>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-3">
                         <button
                             onClick={() => setShowRiskModal(true)}
-                            className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-4 rounded-xl font-bold flex items-center shadow-lg shadow-slate-200 transition-all hover:scale-105"
+                            className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-xl font-bold flex items-center shadow-lg shadow-slate-200 transition-all hover:scale-105 text-sm"
                         >
                             <Icons.AI />
-                            <span className="ml-2">Evaluar Riesgos con IA</span>
+                            <span className="ml-2">Evaluar Riesgos IA</span>
                         </button>
-                        <div className="text-right bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <p className="text-[10px] font-black text-slate-400 uppercase">Presupuesto</p>
-                            <p className="text-3xl font-black text-slate-900">{formatMoney(project.financials.total_revenue)}</p>
-                        </div>
                     </div>
                 </div>
 
@@ -113,34 +106,10 @@ export default function ProjectDetailPage() {
                 <div className="min-h-[500px]">
                     {activeTab === 'OVERVIEW' && (
                         <div className="animate-in fade-in space-y-6">
-                            {/* EXECUTION KPIS */}
+                            {/* EXECUTION DASHBOARD (Integral Control) */}
                             {isExecution && (
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><Icons.HardHat /></div>
-                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-2">Avance Físico</p>
-                                        <div className="flex items-end gap-2">
-                                            <h3 className="text-5xl font-extrabold text-slate-900">{project.advance_real || 0}%</h3>
-                                            <span className="text-sm font-bold text-slate-400 mb-2">/ {project.advance_projected || 0}% Proy.</span>
-                                        </div>
-                                        <div className="w-full bg-slate-100 h-2 rounded-full mt-4 overflow-hidden">
-                                            <div className="h-full bg-indigo-600 rounded-full" style={{ width: `${project.advance_real || 0}%` }}></div>
-                                        </div>
-                                    </div>
-
-                                    <div className={`p-6 rounded-2xl border shadow-sm relative overflow-hidden ${deviation < 0 ? 'bg-rose-50 border-rose-100' : 'bg-emerald-50 border-emerald-100'}`}>
-                                        <p className={`text-[10px] font-black uppercase tracking-wider mb-2 ${deviation < 0 ? 'text-rose-400' : 'text-emerald-400'}`}>Desviación Constructiva</p>
-                                        <h3 className={`text-5xl font-extrabold ${deviation < 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
-                                            {deviation > 0 ? '+' : ''}{deviation}%
-                                        </h3>
-                                    </div>
-
-                                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl text-white">
-                                        <p className="text-[10px] font-black text-indigo-400 uppercase tracking-wider mb-2">SPI (Schedule Performance)</p>
-                                        <h3 className="text-5xl font-extrabold text-white">
-                                            {((project.advance_real || 0) / (project.advance_projected || 1) || 0).toFixed(2)}
-                                        </h3>
-                                    </div>
+                                <div className="mt-4">
+                                    <ExecutiveDashboard project={project} />
                                 </div>
                             )}
 

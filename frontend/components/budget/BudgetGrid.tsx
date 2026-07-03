@@ -74,6 +74,7 @@ export function BudgetGrid({ projectId }: BudgetGridProps) {
 
     React.useEffect(() => {
         if(projectId) loadBudgetLines();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projectId]);
 
     const handleAddLine = async () => {

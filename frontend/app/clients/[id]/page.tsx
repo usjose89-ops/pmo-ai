@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MOCK_CLIENTS } from '@/data/mockClients';
 import { MapPin, Mountain, Building, User, Phone, Mail, ChevronLeft, Settings, Save, AlertTriangle } from 'lucide-react';
 import { notFound } from 'next/navigation';
@@ -30,7 +31,7 @@ export default function ClientDetailPage({ params }: ClientDetailPageProps) {
                     </Link>
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5">
-                            {client.logoUrl && <img src={client.logoUrl} alt={client.name} className="w-full h-full object-contain" />}
+                            {client.logoUrl && <Image src={client.logoUrl} alt={client.name} width={48} height={48} className="w-full h-full object-contain" />}
                         </div>
                         <div>
                             <h1 className="text-xl font-black text-slate-900 leading-tight">{client.name}</h1>

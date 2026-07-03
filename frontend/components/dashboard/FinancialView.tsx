@@ -4,15 +4,17 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { DollarSign, TrendingUp, BarChart3, AlertCircle, Activity, Target } from 'lucide-react';
 import { Project } from '@/types/project';
+import Link from 'next/link';
 import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { PipelineTable } from './PipelineTable';
 
 interface FinancialViewProps {
     projects?: Project[];
     isPipelineMode?: boolean;
+    filterMode?: string;
 }
 
-export function FinancialView({ projects = [], isPipelineMode = false }: FinancialViewProps) {
+export function FinancialView({ projects = [], isPipelineMode = false, filterMode = 'TODOS' }: FinancialViewProps) {
     const [selectedYear, setSelectedYear] = useState<number>(2026);
     
     if (isPipelineMode) {
@@ -324,7 +326,7 @@ export function FinancialView({ projects = [], isPipelineMode = false }: Financi
             </Card>
 
             {/* Pipeline & Active Projects Stack for Mobile/Desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div className={`grid grid-cols-1 ${filterMode === 'ACTIVOS' ? 'md:grid-cols-1' : 'md:grid-cols-2'} gap-6 mt-8`}>
                 {/* Active Projects */}
                 <div className="space-y-4">
                     <h3 className="font-bold text-gray-800 flex items-center border-b pb-2">
@@ -332,10 +334,10 @@ export function FinancialView({ projects = [], isPipelineMode = false }: Financi
                         Proyectos Activos
                     </h3>
                     {projects.filter(p => p.status === 'ADJUDICADO_EN_CURSO').map(p => (
-                        <div key={p.id} className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col space-y-3">
+                        <Link href={`/projects/${p.id}`} key={p.id} className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col space-y-3 hover:border-indigo-500 hover:shadow-md transition-all cursor-pointer group">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <h4 className="font-bold text-slate-800 text-sm">{p.name}</h4>
+                                    <h4 className="font-bold text-slate-800 text-sm group-hover:text-indigo-700 transition-colors">{p.name}</h4>
                                     <p className="text-[10px] text-slate-500 uppercase">{p.client}</p>
                                 </div>
                                 <span className={`text-[10px] px-2 py-1 rounded-full font-bold ${p.risk_label === 'CRITICO' ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'}`}>
@@ -349,40 +351,42 @@ export function FinancialView({ projects = [], isPipelineMode = false }: Financi
                             <div className="w-full bg-slate-100 rounded-full h-1.5">
                                 <div className="bg-indigo-500 h-1.5 rounded-full" style={{ width: `${p.advance_physical}%` }}></div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 
                 {/* Pipeline / Bidding */}
-                <div className="space-y-4">
-                    <h3 className="font-bold text-gray-800 flex items-center border-b pb-2">
-                        <DollarSign className="mr-2 text-indigo-600" size={18} />
-                        Proyectos en Estudio / Licitaciones
-                    </h3>
-                    {projects.filter(p => ['EN_ANALISIS', 'EN_LICITACION'].includes(p.status)).map(p => (
-                        <div key={p.id} className="bg-slate-50 p-4 rounded-xl border border-slate-200 border-dashed flex flex-col space-y-3 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-2 h-full bg-amber-400"></div>
-                            <div className="flex justify-between items-start pr-4">
-                                <div>
-                                    <h4 className="font-bold text-slate-800 text-sm">{p.name}</h4>
-                                    <p className="text-[10px] text-slate-500 uppercase">{p.client}</p>
+                {filterMode !== 'ACTIVOS' && (
+                    <div className="space-y-4">
+                        <h3 className="font-bold text-gray-800 flex items-center border-b pb-2">
+                            <DollarSign className="mr-2 text-indigo-600" size={18} />
+                            Proyectos en Estudio / Licitaciones
+                        </h3>
+                        {projects.filter(p => ['EN_ANALISIS', 'EN_LICITACION'].includes(p.status)).map(p => (
+                            <Link href={`/projects/${p.id}`} key={p.id} className="bg-slate-50 p-4 rounded-xl border border-slate-200 border-dashed flex flex-col space-y-3 relative overflow-hidden hover:border-indigo-500 hover:shadow-sm transition-all cursor-pointer group">
+                                <div className="absolute top-0 right-0 w-2 h-full bg-amber-400"></div>
+                                <div className="flex justify-between items-start pr-4">
+                                    <div>
+                                        <h4 className="font-bold text-slate-800 text-sm group-hover:text-indigo-700 transition-colors">{p.name}</h4>
+                                        <p className="text-[10px] text-slate-500 uppercase">{p.client}</p>
+                                    </div>
+                                    <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-1 rounded-full font-bold">
+                                        En Revisión
+                                    </span>
                                 </div>
-                                <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-1 rounded-full font-bold">
-                                    En Revisión
-                                </span>
+                                <div className="flex justify-between items-center text-xs mt-2">
+                                    <span className="font-semibold text-slate-600">Presupuesto Est.</span>
+                                    <span className="font-bold font-[var(--font-lexend)]">{formatMM(p.financials?.total_revenue || 0)} CLP</span>
+                                </div>
+                            </Link>
+                        ))}
+                        {projects.filter(p => ['EN_ANALISIS', 'EN_LICITACION'].includes(p.status)).length === 0 && (
+                            <div className="text-center p-6 bg-slate-50 rounded-xl border border-dashed border-slate-200 text-slate-400 text-sm">
+                                No hay proyectos en pipeline actualmente.
                             </div>
-                            <div className="flex justify-between items-center text-xs mt-2">
-                                <span className="font-semibold text-slate-600">Presupuesto Est.</span>
-                                <span className="font-bold font-[var(--font-lexend)]">{formatMM(p.financials?.total_revenue || 0)} CLP</span>
-                            </div>
-                        </div>
-                    ))}
-                    {projects.filter(p => ['EN_ANALISIS', 'EN_LICITACION'].includes(p.status)).length === 0 && (
-                        <div className="text-center p-6 bg-slate-50 rounded-xl border border-dashed border-slate-200 text-slate-400 text-sm">
-                            No hay proyectos en pipeline actualmente.
-                        </div>
-                    )}
-                </div>
+                        )}
+                    </div>
+                )}
             </div>
 
             <div className="bg-blue-50 border border-blue-100 p-4 rounded-lg flex items-start">

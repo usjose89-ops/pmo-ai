@@ -89,7 +89,7 @@ class MindicadorService:
                     raise ValueError(f"HTTP Status {response.getcode()}")
 
         except (urllib.error.URLError, Exception) as e:
-            print(f"[MindicadorService] ⚠️ ERROR conectando a mindicador.cl: {e}")
+            print(f"[MindicadorService] ERROR conectando a mindicador.cl: {e}")
             print(f"[MindicadorService] Aplicando valores de FALLBACK Dinámico DB: UF={dynamic_fallbacks['uf']}")
             return dynamic_fallbacks
 

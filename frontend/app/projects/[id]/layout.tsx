@@ -43,11 +43,12 @@ export default function ProjectLayout({
     const isOperations = pathname?.includes('/operations');
     const isQA = pathname?.includes('/qa');
     const isRisks = pathname?.includes('/risks');
+    const isEquipment = pathname?.includes('/equipment');
     const isAdvisor = pathname?.includes('/advisor');
-    const isDashboard = !isBudget && !isHr && !isOperations && !isQA && !isRisks && !isAdvisor;
+    const isDashboard = !isBudget && !isHr && !isOperations && !isQA && !isRisks && !isEquipment && !isAdvisor;
 
     return (
-        <div className="max-w-7xl mx-auto px-8 py-8 space-y-6">
+        <div className="w-full px-4 md:px-8 py-8 space-y-6">
             {showClosureForm && (
                 <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
                     <div className="max-w-2xl w-full">
@@ -109,6 +110,16 @@ export default function ProjectLayout({
                         }`}
                 >
                     <HardHat size={18} className="mr-2" /> Operaciones
+                </Link>
+
+                <Link
+                    href={`/projects/${project.id}/equipment`}
+                    className={`pb-3 border-b-2 flex items-center font-medium transition-colors ${isEquipment
+                        ? 'border-indigo-600 text-indigo-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700'
+                        }`}
+                >
+                    <HardHat size={18} className="mr-2" /> Equipos Rodantes
                 </Link>
 
                 <Link

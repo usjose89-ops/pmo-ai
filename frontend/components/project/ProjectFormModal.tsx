@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Project, ProjectStatus } from '@/types/project';
 import { supabaseProjectService } from '@/services/supabaseProjectService';
 import { X, Save, Building2, MapPin, Calendar, DollarSign, Loader2 } from 'lucide-react';
@@ -49,18 +49,61 @@ export const ProjectFormModal: React.FC<ProjectFormModalProps> = ({ isOpen, onCl
         }
     );
 
+    useEffect(() => {
+        if (isOpen) {
+            setFormData(initialData || {
+                name: '',
+                subtitle: '',
+                client: '',
+                location: '',
+                status: ProjectStatus.EN_ANALISIS,
+                start_date: new Date().toISOString().split('T')[0],
+                technical_finish_date: '',
+                admin_finish_date: '',
+                risk_label: 'BAJO',
+                advance_physical: 0,
+                advance_financial: 0,
+                risk_score: 1,
+                evaluation_stage: 'Análisis de Bases',
+                pipeline_status: 'En Revisión',
+                financials: {
+                    total_revenue: 0,
+                    total_cost: 0,
+                    gross_margin: 0,
+                    gross_margin_percent: 0,
+                    target_revenue: 0,
+                    target_margin_percent: 0,
+                    currency: 'CLP'
+                },
+                hr_metrics: {
+                    headcount: 0,
+                    total_hh: 0,
+                    avg_cost_hh: 0,
+                    productive_factor: 0
+                }
+            });
+        }
+    }, [isOpen, initialData]);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const formatCurrency = (value: number | string) => {
+        if (!value) return '';
+        const stringValue = value.toString().replace(/\D/g, '');
+        return stringValue.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    };
+
     const handleFinancialChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+        const numericValue = Number(value.replace(/\D/g, ''));
         setFormData(prev => ({
             ...prev,
             financials: {
                 ...prev.financials!,
-                [name]: Number(value) || 0
+                [name]: numericValue || 0
             }
         }));
     };
@@ -187,11 +230,11 @@ export const ProjectFormModal: React.FC<ProjectFormModalProps> = ({ isOpen, onCl
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 mb-1">Presupuesto Venta (Ingreso)</label>
-                                    <input type="number" name="total_revenue" value={formData.financials?.total_revenue} onChange={handleFinancialChange} className="w-full border-slate-200 rounded-xl focus:ring-blue-500 focus:border-blue-500 text-sm" />
+                                    <input type="text" name="total_revenue" value={formatCurrency(formData.financials?.total_revenue || '')} onChange={handleFinancialChange} className="w-full border-slate-200 rounded-xl focus:ring-blue-500 focus:border-blue-500 text-sm" />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 mb-1">Costo Proyectado (Presupuesto Meta)</label>
-                                    <input type="number" name="total_cost" value={formData.financials?.total_cost} onChange={handleFinancialChange} className="w-full border-slate-200 rounded-xl focus:ring-blue-500 focus:border-blue-500 text-sm" />
+                                    <input type="text" name="total_cost" value={formatCurrency(formData.financials?.total_cost || '')} onChange={handleFinancialChange} className="w-full border-slate-200 rounded-xl focus:ring-blue-500 focus:border-blue-500 text-sm" />
                                 </div>
                             </div>
 

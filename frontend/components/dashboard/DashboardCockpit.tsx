@@ -31,9 +31,11 @@ export function DashboardCockpit({ projects }: DashboardCockpitProps) {
             {/* Header & Persona Selector */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
                 <div className="flex flex-col space-y-2">
-                    <h1 className="text-2xl font-bold text-gray-900 flex items-center">
-                        <LayoutDashboard className="mr-3 text-indigo-600" />
-                        Dashboard 360° (PMO AI)
+                    <h1 className="text-2xl font-bold text-gray-900 flex flex-wrap items-center gap-3">
+                        <LayoutDashboard className="text-indigo-600" />
+                        <span>Dashboard 360° (PMO AI)</span>
+                        {portfolioFilter === 'ACTIVOS' && <span className="text-sm font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-200 animate-in fade-in zoom-in">Vista: En Ejecución</span>}
+                        {portfolioFilter === 'EN_ESTUDIO' && <span className="text-sm font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-200 animate-in fade-in zoom-in">Vista: Licitaciones</span>}
                     </h1>
 
                     {/* Project Filter Segmented Control */}
@@ -93,7 +95,7 @@ export function DashboardCockpit({ projects }: DashboardCockpitProps) {
 
             {/* Dynamic View Rendering */}
             <div className={`rounded-xl border ${portfolioFilter === 'EN_ESTUDIO' ? 'bg-[#111318] border-[#1f232b]' : 'bg-slate-50 border-slate-200'} p-4 md:p-6 min-h-[600px]`}>
-                {activePersona === 'MANAGEMENT' && <FinancialView projects={filteredProjects} isPipelineMode={portfolioFilter === 'EN_ESTUDIO'} />}
+                {activePersona === 'MANAGEMENT' && <FinancialView projects={filteredProjects} isPipelineMode={portfolioFilter === 'EN_ESTUDIO'} filterMode={portfolioFilter} />}
                 {activePersona === 'OPERATIONS' && <OperationsView projects={filteredProjects} />}
                 {activePersona === 'CLIENT' && <ClientView projects={filteredProjects} />}
             </div>

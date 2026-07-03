@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MOCK_CLIENTS } from '@/data/mockClients';
 import { Building2, MapPin, Users, Briefcase } from 'lucide-react';
 
@@ -27,7 +28,7 @@ export default function ClientsPage() {
                         <div className="flex justify-between items-start mb-4">
                             <div className="w-16 h-16 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 overflow-hidden">
                                 {client.logoUrl ? (
-                                    <img src={client.logoUrl} alt={client.name} className="w-full h-full object-contain" />
+                                    <Image src={client.logoUrl} alt={client.name} width={64} height={64} className="w-full h-full object-contain" />
                                 ) : (
                                     <Building2 className="text-slate-300" size={32} />
                                 )}

@@ -93,6 +93,7 @@ export function ProposalGenerator() {
         if (teamStructure.length > 0) {
             calculateIndirectStaffCost(teamStructure);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [teamStructure, params.clientType, params.durationMonths, params.includeLodging]);
 
     // Also recalculate APU if staff cost changes (this might trigger loop if not careful, better to do it explicitly)
@@ -101,6 +102,7 @@ export function ProposalGenerator() {
             // Apply new Overhead to APU
             recalculateAPUWithOverhead(generatedAPU, calculatedStaffCost);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [calculatedStaffCost, params.imponderablesPercent, params.utilityPercent, params.productivityFactor]);
 
 

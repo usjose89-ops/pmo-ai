@@ -1,9 +1,13 @@
 import psycopg2
 import sys
+import os
+from dotenv import load_dotenv
 
 def main():
+    load_dotenv()
+    db_url = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@127.0.0.1:54322/postgres")
     try:
-        conn = psycopg2.connect("postgresql://postgres:postgres@127.0.0.1:54322/postgres")
+        conn = psycopg2.connect(db_url)
         cur = conn.cursor()
         
         print("=== CONEXIÓN EXITOSA A SUPABASE (POSTGRESQL) ===")
